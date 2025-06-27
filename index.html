@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Red Hawk J6 Ranch Loan Calculators</title>
+    <style>
+       * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: white;
+            color: black;
+            padding: 20px;
+        }
+
+        .calculator-container {
+            max-width: 500px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            border: 2px solid #ddd;
+        }
+
+        .calculator-header {
+            background: white;
+            color: black;
+            padding: 15px;
+            text-align: center;
+            border-bottom: 2px solid #ddd;
+            display: flex;
+            justify-content: space-between;
+        }
+        .title {
+            padding-top: 20px;
+            text-align: center;
+            padding-left: 10px;
+        }
+
+        .calculator-header h1 {
+            font-size: 22px;
+            margin-bottom: 5px;
+            color: black;
+        }
+
+        .calculator-header h2 {
+            font-size: 18px;
+            font-weight: normal;
+            color: black;
+        }
+
+        .calculator-header .img img{
+            width: 220px;    
+        }
+
+        .calculator-body {
+            padding: 20px;
+        }
+
+        .calculator-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+
+        .calculator-table td {
+            padding: 12px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .calculator-table td:first-child {
+            font-weight: 600;
+            color: black;
+            width: 60%;
+        }
+
+        .calculator-table td:last-child {
+            font-weight: 700;
+            text-align: right;
+            color: black;
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: black;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            color: black;
+        }
+
+        .input-group input:read-only {
+            background-color: #e2e2e2;
+            border: 1px solid #ccc;
+            color: #616060;
+        }
+
+        .dollar-input {
+            position: relative;
+        }
+
+        .dollar-input:before {
+            content: '$';
+            position: absolute;
+            left: 15px;
+            top: 40px;
+            font-weight: bold;
+            color: black;
+        }
+
+        .dollar-input input {
+            padding-left: 25px;
+        }
+
+        @media (max-width: 600px) {
+            .calculator-header .img img{
+            width: 140px;    
+        }
+            .calculator-header h1 {
+            font-size: 18px;
+            margin-bottom: 5px;
+            color: black;
+        }
+            .calculator-header h2 {
+            font-size: 14px;
+            font-weight: normal;
+            color: black;
+        }
+            .calculator-container {
+                border-radius: 0;
+            }
+            
+            .calculator-table td {
+                padding: 10px 5px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="widgets-container">
+        <div class="calculator-container" id="widget-183">
+    <div class="calculator-header">
+        <div class="title">
+            <h1>Red Hawk J6 Ranch</h1>
+            <h2>Bridge Loan Calculator</h2>
+        </div>
+        <div class="img">
+            <img src="image.png" alt="">
+        </div>
+    </div>
+    
+    <div class="calculator-body">
+        <div class="input-group">
+            <label for="lot-number-183">Lot Number</label>
+            <input type="text" id="lot-number-183" value="183" readonly>
+        </div>
+        
+        <div class="input-group dollar-input">
+            <label for="purchase-price-183">Purchase Price</label>
+            <input type="number" id="purchase-price-183" value="152000" readonly>
+        </div>
+        
+        <div class="input-group dollar-input">
+            <label for="offer-price-183">Offer Price</label>
+            <input type="number" id="offer-price-183" value="144400">
+        </div>
+        
+        <div class="input-group dollar-input">
+            <label for="proposed-sale-price-183">Proposed Sale Price</label>
+            <input type="number" id="proposed-sale-price-183" value="144400" readonly>
+        </div>
+        
+        <div class="input-group">
+            <label for="term-183">Term in Years</label>
+            <input type="number" id="term-183" value="10" readonly>
+        </div>
+        
+        <div class="input-group">
+            <label for="interest-rate-183">Interest Rate (%)</label>
+            <input type="number" id="interest-rate-183" value="3" step="0.1" readonly>
+        </div>
+        
+        <table class="calculator-table">
+            <tr>
+                <td>Down Payment (30%)</td>
+                <td id="down-payment-183">$43,320.00</td>
+            </tr>
+            <tr>
+                <td>Amount Financed</td>
+                <td id="amount-financed-183">$101,080.00</td>
+            </tr>
+            <tr>
+                <td>Monthly Payment</td>
+                <td id="monthly-payment-183">$976.71</td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+
+    </div>
+
+    <script>
+        function formatCurrency(amount) {
+            return new Intl.NumberFormat('en-US', { 
+                style: 'currency', 
+                currency: 'USD',
+                minimumFractionDigits: 0,
+                maximumFractionDigits: 2
+            }).format(amount);
+        }
+
+        function calculateMonthlyPayment(principal, annualRate, years) {
+            const monthlyRate = annualRate / 100 / 12;
+            const numberOfPayments = years * 12;
+            return principal * monthlyRate * Math.pow(1 + monthlyRate, numberOfPayments) / 
+                   (Math.pow(1 + monthlyRate, numberOfPayments) - 1);
+        }
+
+        function updateCalculations(lotNumber) {
+            const offerPrice = parseFloat(document.getElementById(`offer-price-${lotNumber}`).value) || 0;
+            const term = parseFloat(document.getElementById(`term-${lotNumber}`).value) || 10;
+            const interestRate = parseFloat(document.getElementById(`interest-rate-${lotNumber}`).value) || 3;
+
+            document.getElementById(`proposed-sale-price-${lotNumber}`).value = offerPrice;
+
+            const downPayment = offerPrice * 0.3;
+            document.getElementById(`down-payment-${lotNumber}`).textContent = formatCurrency(downPayment);
+
+            const amountFinanced = offerPrice - downPayment;
+            document.getElementById(`amount-financed-${lotNumber}`).textContent = formatCurrency(amountFinanced);
+
+            const monthlyPayment = calculateMonthlyPayment(amountFinanced, interestRate, term);
+            document.getElementById(`monthly-payment-${lotNumber}`).textContent = formatCurrency(monthlyPayment);
+        }
+
+        function initEventListeners() {
+            const lotNumbers = [142, 195, 196, 199, 249, 259, 261, 183, 202, 203, 
+                              204, 205, 207, 208, 209, 210, 211, 212, 213, 214, 
+                              215, 218, 221, 222, 223, 224, 229, 230];
+            
+            lotNumbers.forEach(lotNumber => {
+                const offerInput = document.getElementById(`offer-price-${lotNumber}`);
+                if (offerInput) {
+                    offerInput.addEventListener('input', () => updateCalculations(lotNumber));
+                }
+            });
+        }
+
+        function initCalculator() {
+            initEventListeners();
+
+            const lotNumbers = [142, 195, 196, 199, 249, 259, 261, 183, 202, 203, 
+                              204, 205, 207, 208, 209, 210, 211, 212, 213, 214, 
+                              215, 218, 221, 222, 223, 224, 229, 230];
+            
+            lotNumbers.forEach(lotNumber => {
+                updateCalculations(lotNumber);
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', initCalculator);
+    </script>
+</body>
+</html>
